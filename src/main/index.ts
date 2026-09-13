@@ -13,8 +13,19 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+	  webviewTag: true
     }
+  })
+
+   mainWindow.webContents.session.on('will-download', (_event, item) => {
+    item.on('done', (_e, state) => {
+      if (state === 'completed') {
+        console.log('Descarga completada:', item.getSavePath())
+      } else {
+        console.log('Descarga fallida:', state)
+      }
+    })
   })
 
   mainWindow.on('ready-to-show', () => {
