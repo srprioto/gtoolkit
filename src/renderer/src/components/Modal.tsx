@@ -8,9 +8,6 @@ interface ModalProps {
 
 export default function Modal({ children, showModal, setShowModal }: ModalProps) {
 
-	const handerShowModal = () => { 
-		setShowModal(!showModal)
-	}
 
 	return (
 		showModal ?
@@ -19,7 +16,7 @@ export default function Modal({ children, showModal, setShowModal }: ModalProps)
 			<div className="background_modal"/>
 
 			<div className="box_modal">
-				<button className="back_modal" onClick={handerShowModal}>
+				<button className="back_modal" onClick={ () => setShowModal(!showModal) }>
 					<svg
 						width={20}
 						height={20}

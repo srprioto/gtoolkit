@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="FirmaPeru.exe" version="1.1.0.2" publicKeyToken="7905cfbaddd95851" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="icono.ico" asmv2:publisher="PCM" co.v1:suiteName="Plataforma Firma Perú" asmv2:product="Plataforma Firma Perú" asmv2:supportUrl="https://apps.firmaperu.gob.pe/web/firmador.xhtml" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="FirmaPeru" version="1.1.0.2" language="neutral" processorArchitecture="msil" />
+    <commandLine file="FirmaPeru.exe" parameters="" />
+  </entryPoint>
+  <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FirmaPeru.exe" size="134648">
+      <assemblyIdentity name="FirmaPeru" version="1.1.0.2" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>aTEk7745bUDOjUTCO3mWPYbTwl4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SevenZipExtractor.dll" size="31744">
+      <assemblyIdentity name="SevenZipExtractor" version="1.0.16.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>8fuyRG8ycR8jfGQ14ALWUS30yRc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Utils.dll" size="55296">
+      <assemblyIdentity name="Utils" version="1.1.0.1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>l08cB5MZh5Glgm40n6IpTk/2iiU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="FirmaPeru.exe.config" size="177">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>QiUcmjH9p/2uG6RHwWO5vFXx5WM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="firmaperucliente.jar" size="27966475">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>jrVS0zg9oAiG8UvAIJGDJgFQE+I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="firmaperulib-1.1.0.jar" size="578081">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>SGzasUNWzff0T9iuqOQeXAFHs/k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="icono.ico" size="115335">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>lTAE3Ewhhn91HGN13euciUNnTYM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="x64\7z.dll" size="1710080">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ZA/PhOQ0FJHIjKiPFvOeohDBsR0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="x86\7z.dll" size="1167872">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>wSE5K6ttuo0Evuica1JujmdlDMg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on and is
+           is designed to work with. Uncomment the appropriate elements and Windows will 
+           automatically selected the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=Presidencia del Consejo de Ministros, SERIALNUMBER=2007-12-20, OID.2.5.4.15=Government Entity, O=Presidencia del Consejo de Ministros, OID.1.3.6.1.4.1.311.60.2.1.3=PE, L=Lima, S=Lima, C=PE" issuerKeyHash="ce894f8251aa15a28462ca312361d261fbf8fe78" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>HxDQDVH458nTPUpC+/fsHzg4j19ZmtLeOpd/EBrlQdA=</DigestValue></Reference></SignedInfo><SignatureValue>nB+5gMCBOwiRhij3tPgsZhjla+rsFUmfvCHKv62edhJm3J+ddHvGx7zkgqnmAlZQjmzk3CJaN/P15uyONQA4uyr1r48E9m1K4cTOfQJbWhN5kbKI7Vi5Qaz3ZTlBdh8k1L2lhRt6Ss2F9RVXEkMzLWG9m3m9TiOKNGxp8Lacpc+XkRwYB9HdQZ4aCO9yRpCVZzrBXNofD4ahWmGjkF5C3JshglAxFYbfScNNSpugIGyzSZ90N7CkMllM6HAq5R7q7nNGC6/+6yWOjmXpkLF0GF8f8LUP3bSifYX7aFmbWI8yykeMaqwICUq62GFh2h1aXo1Ykl239kK3bg5sEvi2fDgf1OEWDl2kHf0hwbmJu7Qf4r4boPAMV8Il/cIPEYAwrVN/c9eYUJuhnTYO7tjHOwwHmA9jaTcJXui67jZlNT9V/eTguqM/4gmTI9Pm3QELZYLwgIItQYs78AxHrjotjpOSajdZdlJASxBRgtVkdCaCE9oN6SjlxvqTvhtRB/086TBHKP7fmA3mI/uBJ7AO5o2JDuKReS+zgnL2MX0dpAvpvCOguPIXX1SmQ77dhS0o/z4bcbNKw4/lHvOeFieMigOzIF4ED++7I6haPYE7TqM0WxcEnqzn0D73gRPReFHJYPZw5Y++LcOqcT8Su02uu5Z7pV6GuhVTqfjBzCaLnGI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>v9ehif7tNGA+dmOwZKRdQIGwp6EIwB4cKsaYDo9iPFT6MmE7DBzZgJbB2T+29iu2LPcXNTrFaSLFy1ZqHz/AebRhg6xFTZXlM3J4PXkfsMpVIxD0O3rmTHzkHsIu+PvVbX+chXygsHo/jKAb1hBy9fZ/yGeLWSU/ujOOtTPWXc+f4Iguq2l4oXPCTC4WV3h6IMNdlMLyPlEpU1s3Jw/eHzP21VeUXQL1t/9i0y4kgSuLNpy3Ox98dZVSxVOYtolT6xl2MoYa7TCv5McM9paOajN0B5Pw5f5vRysb+nEPWJfKiqSMeU0nuBrWGTSxCTGTLup3GOaKbqJOSCh6cZTX74VFaEwoHyL8J/S+9ycEXXh/MfB24lnQv2OKeE4CfMDcjpM0U0KL54m11H1+kX9pOI7HsL2ZzXlQewcewGuJlqE8WIgDnqSdt+GBTjnqq1hJuNoEqejkZc88uwUIfyLIq0aAiKiIkOktpdZBeAJQ3bVDrAv1y+2Au41mKuOHbbt2FxsRy3UCBaeRP+Bdfv/8ZAJeW7EZKR0nxvRnrI/cV0YzoCozqLORCWOzGcnaco2Jqf/Jtsg4ZCGy2xHSFeX+dMo9fN3prSgj13ls1CnhYl+fq7oMoZBXHczxHCmYApu0iUQzmNhxC4xlpEc0bQjC3hT4Qo1nc/EC/zEuGFGuvBM=</Modulus><Exponent>AAEAAQ==</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d041e51a107f973aded29a595f8f38381fecf7fb424a3dd3c9e7f8510dd0101f" Description="" Url=""><as:assemblyIdentity name="FirmaPeru.exe" version="1.1.0.2" publicKeyToken="7905cfbaddd95851" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Presidencia del Consejo de Ministros, SERIALNUMBER=2007-12-20, OID.2.5.4.15=Government Entity, O=Presidencia del Consejo de Ministros, OID.1.3.6.1.4.1.311.60.2.1.3=PE, L=Lima, S=Lima, C=PE</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>zsSQrMCJs/A4gQtBafa3ySfxxnUMMz9YOxg5igeeF1o=</DigestValue></Reference></SignedInfo><SignatureValue>TCbvAH9MoV2UROVk2IaDoDoTAdLgvvRjGs6HEfqsKyxzVqIK/aVHIyKFX86HP5zzX5gq4BjYiV4m+deFMSId7ftv8XusqFBGTFFGI96dC2Q4mpKZQEBBYcT16+rDY/rj/CpXFPsLkWNfM6cM6C0cfcX/IDj4JFUNPI2eB3UDJE+7k0irVg8mfu7NO4jF3wOV1F2208WATwi7x44/XTTgo3mtdj8xYWdnpEFUB6V5e4dcCOV/DnyXoKU/Vxoq0GnTGRjfyAdC5vTNSdACZN+HfI2yc5f2Rw6zhwxNg05ghsN4hziEM4VW+MYixnzhu9KL5CMVkO7iiMUNqSVLEIipOO8TbsPTrtpiLQhwdzfN3zqasewOxB3yP6QJsRElITxXpWro99uxrx6oIpOsGQOOx0s89MdkwD8CNex+yIm4n3I1ltxiyYM/CaldK7++VSaaI+bOw7wNPFU0TiddMoDLy7EMvoGb86ccijBKePvTTrA9od8NlKHgAYqCED9D65ufzLca/JtcJZirM7MMKnc8Id3w53kUBjqHeVWc/VoOoijSvaCt8WhispoxFmX4ng3KvLnYa905N1oDGXmzNz0TgNxT0snaps+h1VElLgWM+n8dgNLbjGjjEENQT2pTLQf/jb29jj2aP8AW9o2+xBrOJ9bSIhhfQlTtsgXtAXmz86A=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>v9ehif7tNGA+dmOwZKRdQIGwp6EIwB4cKsaYDo9iPFT6MmE7DBzZgJbB2T+29iu2LPcXNTrFaSLFy1ZqHz/AebRhg6xFTZXlM3J4PXkfsMpVIxD0O3rmTHzkHsIu+PvVbX+chXygsHo/jKAb1hBy9fZ/yGeLWSU/ujOOtTPWXc+f4Iguq2l4oXPCTC4WV3h6IMNdlMLyPlEpU1s3Jw/eHzP21VeUXQL1t/9i0y4kgSuLNpy3Ox98dZVSxVOYtolT6xl2MoYa7TCv5McM9paOajN0B5Pw5f5vRysb+nEPWJfKiqSMeU0nuBrWGTSxCTGTLup3GOaKbqJOSCh6cZTX74VFaEwoHyL8J/S+9ycEXXh/MfB24lnQv2OKeE4CfMDcjpM0U0KL54m11H1+kX9pOI7HsL2ZzXlQewcewGuJlqE8WIgDnqSdt+GBTjnqq1hJuNoEqejkZc88uwUIfyLIq0aAiKiIkOktpdZBeAJQ3bVDrAv1y+2Au41mKuOHbbt2FxsRy3UCBaeRP+Bdfv/8ZAJeW7EZKR0nxvRnrI/cV0YzoCozqLORCWOzGcnaco2Jqf/Jtsg4ZCGy2xHSFeX+dMo9fN3prSgj13ls1CnhYl+fq7oMoZBXHczxHCmYApu0iUQzmNhxC4xlpEc0bQjC3hT4Qo1nc/EC/zEuGFGuvBM=</Modulus><Exponent>AAEAAQ==</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

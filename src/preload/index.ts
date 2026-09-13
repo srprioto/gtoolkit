@@ -5,6 +5,7 @@ const api = {
 	minimizar: (): void => ipcRenderer.send('window:minimizar'),
 	maximizar: (): void => ipcRenderer.send('window:maximizar'),
 	cerrar:    (): void => ipcRenderer.send('window:cerrar'),
+	abrirFirmaPeru: (): Promise<{ ok: boolean }> => ipcRenderer.invoke('abrir-firmapperu'),
 }
 
 if (process.contextIsolated) {

@@ -7,6 +7,7 @@ declare global {
 			minimizar: () => void
 			maximizar: () => void
 			cerrar: () => void
+			abrirFirmaPeru: () => Promise<{ ok: boolean }>
 		}
 	}
 }

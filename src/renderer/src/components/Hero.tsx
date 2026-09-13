@@ -1,15 +1,10 @@
+import iconGeresa from '@renderer/assets/imgs/geresa.jpg'
+
 function Hero(): React.JSX.Element {
 	return (
 		<div className="hero">
 			<div className="hero__icon" aria-hidden>
-				<span className="hero__spark hero__spark--l1" />
-				<span className="hero__spark hero__spark--l2" />
-				<span className="hero__spark hero__spark--r1" />
-				<span className="hero__spark hero__spark--r2" />
-				<div className="hero__doc">
-					<div className="hero__doc-back" />
-					<div className="hero__doc-front" />
-				</div>
+				<img src={iconGeresa} alt="Cargando" width={90} height={90} />
 			</div>
 			<h1 className="hero__title">
 				Todo lo que necesitas,

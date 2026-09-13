@@ -6,7 +6,8 @@ export default function UnirPdfs() {
 
 	const [showModal, setShowModal] = useState(false);
 
-
+	const unirPdf:string = "https://www.ilovepdf.com/es/unir_pdf";
+	
 
 	return (
 		<>
@@ -23,7 +24,7 @@ export default function UnirPdfs() {
 				setShowModal={setShowModal}
 			>
 				<webview
-					src="https://www.ilovepdf.com/es/unir_pdf"
+					src={unirPdf}
 					style={{ width: '100%', height: '100%', border: 'none' }}
 				/>
 			</Modal>

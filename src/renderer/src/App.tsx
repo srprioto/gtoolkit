@@ -3,7 +3,7 @@ import './assets/main.scss';
 import TitleBar from './components/TitleBar';
 import Hero from './components/Hero';
 import UnirPdfs from './pages/UnirPdfs';
-import WordPdf from './pages/WordPdf';
+import WordToPdf from './pages/WordPdf';
 import FirmaDigital from './pages/FirmaDigital';
 import VerificarFirma from './pages/VerificarFirma';
 import Scanner from './pages/Scanner';
@@ -17,11 +17,11 @@ function App(): React.JSX.Element {
 				<Hero />
 				<section className="grid">
 					<UnirPdfs />
-					<WordPdf />
+					<WordToPdf />
 					<FirmaDigital />
 					<VerificarFirma />
-					<Scanner />
 					<NextCloud />
+					<Scanner />
 
 				</section>
 			</main>

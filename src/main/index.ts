@@ -2,10 +2,11 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import { spawn } from 'child_process'
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
-    width: 900,
+    width: 1100,
     height: 670,
     show: false,
     frame: false,
@@ -72,6 +73,32 @@ app.whenReady().then(() => {
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+
+ipcMain.handle('abrir-firmapperu', async () => {
+  const basePath = app.isPackaged
+    ? process.resourcesPath
+    : join(__dirname, '../../resources')
+
+  const exePath = join(
+    basePath,
+    'refirma',
+    'firm..tion_7905cfbaddd95851_0001.0001_81987131807f31c0',
+    'FirmaPeru.exe'
+  )
+
+  const child = spawn(exePath, [], {
+    detached: true,
+    stdio: 'ignore',
+    cwd: join(exePath, '..')
+  })
+  child.unref()
+
+  return { ok: true }
+})
+
+
+
 })
 
 app.on('window-all-closed', () => {
