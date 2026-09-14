@@ -6,7 +6,6 @@ import UnirPdfs from './pages/UnirPdfs';
 import WordToPdf from './pages/WordPdf';
 import FirmaDigital from './pages/FirmaDigital';
 import VerificarFirma from './pages/VerificarFirma';
-import Scanner from './pages/Scanner';
 import NextCloud from './pages/NextCloud';
 
 function App(): React.JSX.Element {
@@ -21,7 +20,7 @@ function App(): React.JSX.Element {
 					<FirmaDigital />
 					<VerificarFirma />
 					<NextCloud />
-					<Scanner />
+					{/* <Scanner /> */}
 
 				</section>
 			</main>

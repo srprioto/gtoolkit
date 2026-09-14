@@ -8,10 +8,8 @@ interface ModalProps {
 
 export default function Modal({ children, showModal, setShowModal }: ModalProps) {
 
-
-	return (
-		showModal ?
-		<div className="modal">
+	if (showModal) {
+		return <div className="modal">
 
 			<div className="background_modal"/>
 
@@ -35,6 +33,8 @@ export default function Modal({ children, showModal, setShowModal }: ModalProps)
 			</div>
 
 		</div>
-		: <></>
-	)
+	} else {
+		return null
+	}
+	
 }
