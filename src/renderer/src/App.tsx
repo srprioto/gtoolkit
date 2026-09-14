@@ -7,6 +7,7 @@ import WordToPdf from './pages/WordPdf';
 import FirmaDigital from './pages/FirmaDigital';
 import VerificarFirma from './pages/VerificarFirma';
 import NextCloud from './pages/NextCloud';
+import Qellqa from './pages/Qellqa';
 
 function App(): React.JSX.Element {
 	return (
@@ -15,11 +16,12 @@ function App(): React.JSX.Element {
 			<main className="app__content">
 				<Hero />
 				<section className="grid">
+					<Qellqa />
+					<FirmaDigital />
+					<NextCloud />
 					<UnirPdfs />
 					<WordToPdf />
-					<FirmaDigital />
 					<VerificarFirma />
-					<NextCloud />
 					{/* <Scanner /> */}
 
 				</section>

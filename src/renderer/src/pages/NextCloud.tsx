@@ -9,7 +9,7 @@ export default function NextCloud() {
 	return (
 		<>
 			<ActionCard
-				variant="save"
+				// variant="save"
 				icon="📁"
 				title="Guardar Documentos"
 				description="Organiza y guarda tus archivos de forma rápida y segura."

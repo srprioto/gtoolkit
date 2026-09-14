@@ -12,7 +12,7 @@ export default function UnirPdfs() {
 	return (
 		<>
 			<ActionCard
-				variant="pdf"
+				// variant="pdf"
 				icon="📄"
 				title="Unir PDF's"
 				description="Combina varios archivos PDF en uno solo."

@@ -12,7 +12,7 @@ export default function WordToPdf() {
 	return (
 		<>
 			<ActionCard
-				variant="word"
+				// variant="word"
 				icon="🔄"
 				title="Convertir Word a PDF"
 				description="Convierte tus documentos de Word a formato PDF."
