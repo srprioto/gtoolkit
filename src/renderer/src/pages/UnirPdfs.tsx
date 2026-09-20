@@ -1,5 +1,5 @@
 import ActionCard from "@renderer/components/ActionCard"
-import Modal from "@renderer/components/Modal"
+import ModalWeb from "@renderer/components/modals/ModalWeb"
 import { useState } from "react"
 
 export default function UnirPdfs() {
@@ -19,7 +19,7 @@ export default function UnirPdfs() {
 				onClick={() => { setShowModal(!showModal) } }
 			/>
 
-			<Modal 
+			<ModalWeb 
 				showModal={showModal}
 				setShowModal={setShowModal}
 			>
@@ -27,7 +27,7 @@ export default function UnirPdfs() {
 					src={unirPdf}
 					style={{ width: '100%', height: '100%', border: 'none' }}
 				/>
-			</Modal>
+			</ModalWeb>
 
 		</>
 	)

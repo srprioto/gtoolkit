@@ -6,10 +6,10 @@ interface ModalProps {
 	setShowModal: Function 
 }
 
-export default function Modal({ children, showModal, setShowModal }: ModalProps) {
+export default function ModalWeb({ children, showModal, setShowModal }: ModalProps) {
 
 	if (showModal) {
-		return <div className="modal">
+		return <div className="modal_web">
 
 			<div className="background_modal"/>
 

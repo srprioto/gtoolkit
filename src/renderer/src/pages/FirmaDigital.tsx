@@ -1,6 +1,6 @@
 import ActionCard from '@renderer/components/ActionCard'
 import logoRefirma from '@renderer/assets/imgs/refirma.png'
-import ModalLoad from '@renderer/components/ModalLoad';
+import ModalLoad from '@renderer/components/modals/ModalLoad';
 import { useRef, useState } from 'react'
 
 export default function FirmaDigital(): React.JSX.Element {

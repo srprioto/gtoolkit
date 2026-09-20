@@ -31,3 +31,7 @@ function App(): React.JSX.Element {
 }
 
 export default App;
+
+// https://react-icons.github.io/react-icons/icons/lu/
+// import { IconName } from "react-icons/lu"
+

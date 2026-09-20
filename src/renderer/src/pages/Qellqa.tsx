@@ -1,7 +1,7 @@
 import ActionCard from "@renderer/components/ActionCard"
 import logoQellqa from '@renderer/assets/imgs/logo-qellqa-white.svg'
 
-import ModalFull from "@renderer/components/ModalFull";
+import ModalFull from "@renderer/components/modals/ModalFull";
 import { useState } from "react"
 
 export default function Qellqa() {
