@@ -9,12 +9,15 @@ declare global {
 			cerrar: () => void
 			abrirFirmaPeru: () => Promise<{ ok: boolean }>
 			abrirRuta: (ruta: string) => Promise<{ ok: boolean; error: string }>
-		},
+			copyReadonly: (srcPath: string, destFolder: string) => Promise<{ ok: boolean; destPath?: string; error?: string }>
+			getFilePath: (file: File) => string
+			selectDocx: () => Promise<{ ok: boolean; path?: string }>
+		}
 		db: {
 			create: (key: string, item: any) => Promise<any>
 			read: (key: string) => Promise<any[]>
 			update: (key: string, id: number, changes: any) => Promise<any>
 			delete: (key: string, id: number) => Promise<boolean>
-    	}
+		}
 	}
 }

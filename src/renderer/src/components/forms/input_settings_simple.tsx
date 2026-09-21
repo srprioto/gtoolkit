@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import { LuPencil, LuCheck, LuX } from 'react-icons/lu'
 
+interface Props {
+  keyItem: string       // a qué bloque pertenece (ej. 'nxc')
+  keyValue: string      // qué campo dentro del bloque (ej. 'ruta')
+  descripcion: string
+}
 
-export default function ImputSettingsSimple({ keyItem, descripcion }) {
-	
+export default function ImputSettingsSimple({ keyItem, keyValue, descripcion }: Props) {
 	const [value, setValue] = useState('')
 	const [items, setItems] = useState<any[]>([])
 	const [editing, setEditing] = useState(false)
@@ -11,7 +15,7 @@ export default function ImputSettingsSimple({ keyItem, descripcion }) {
 	const load = async () => {
 		const data = await window.db.read(keyItem)
 		setItems(data)
-		if (!editing) setValue(data[0]?.value || '')
+		if (!editing) setValue(data[0]?.[keyValue] || '')
 	}
 
 	useEffect(() => { load() }, [])
@@ -20,16 +24,16 @@ export default function ImputSettingsSimple({ keyItem, descripcion }) {
 
 	const handleConfirm = async () => {
 		if (!value.trim()) return
-			const existing = items[0]
-		if (existing) await window.db.update(keyItem, existing.id, { value })
-		else await window.db.create(keyItem, { value })
+		const existing = items[0]
+		if (existing) await window.db.update(keyItem, existing.id, { [keyValue]: value })
+		else await window.db.create(keyItem, { [keyValue]: value })
 		setEditing(false)
 		load()
 	}
 
 	const handleCancel = () => {
 		setEditing(false)
-		setValue(items[0]?.value || '')
+		setValue(items[0]?.[keyValue] || '')
 	}
 
 	return (
@@ -42,10 +46,10 @@ export default function ImputSettingsSimple({ keyItem, descripcion }) {
 				disabled={!editing}
 			/>
 			{editing ? (
-				<div className="input_btn_stg">
-					<button onClick={handleConfirm}><LuCheck /></button>
-					<button onClick={handleCancel}><LuX /></button>
-				</div>
+			<div className="input_btn_stg">
+				<button onClick={handleConfirm}><LuCheck /></button>
+				<button onClick={handleCancel}><LuX /></button>
+			</div>
 			) : (
 				<div className="input_btn_stg">
 					<button onClick={handleEdit}><LuPencil /></button>
@@ -54,6 +58,3 @@ export default function ImputSettingsSimple({ keyItem, descripcion }) {
 		</div>
 	)
 }
-
-
-// style={{ display: 'flex', alignItems: 'center', gap: 8 }}
