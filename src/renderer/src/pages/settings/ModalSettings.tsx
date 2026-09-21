@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { LuPenTool, LuSave, LuSettings } from 'react-icons/lu'
 import Modal from '@renderer/components/modals/Modal'
+import NxcSetting from './nxcloud/NxcSetting'
 
 interface Props {
 	showModal: boolean
@@ -21,7 +22,7 @@ const ITEMS = [
 	{ 
 		label: 'Gestión documental',
 		icon: <LuSave />,
-		content: <p>Guardar Documentos</p> 
+		content: <NxcSetting/>
 	},
 ]
 

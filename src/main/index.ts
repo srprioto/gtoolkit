@@ -3,6 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { spawn } from 'child_process'
+import store from './store'
 
 function createWindow(): void {
 	const mainWindow = new BrowserWindow({
@@ -104,6 +105,28 @@ app.whenReady().then(() => {
 		return { ok: err === '', error: err }
 	})
 
+	// conexion con electron store
+	ipcMain.handle('db:create', (_, key, item) => {
+		const list = store.get(key, []) as any[]
+		const newItem = { id: Date.now(), ...item }
+		store.set(key, [...list, newItem])
+		return newItem
+	})
+
+	ipcMain.handle('db:read', (_, key) => store.get(key, []))
+
+	ipcMain.handle('db:update', (_, key, id, changes) => {
+		const list = store.get(key, []) as any[]
+		const updated = list.map(i => i.id === id ? { ...i, ...changes } : i)
+		store.set(key, updated)
+		return updated.find(i => i.id === id)
+	})
+
+	ipcMain.handle('db:delete', (_, key, id) => {
+		const list = store.get(key, []) as any[]
+		store.set(key, list.filter(i => i.id !== id))
+		return true
+	})
 
 })
 

@@ -1,6 +1,7 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
+
 const api = {
 	minimizar: (): void => ipcRenderer.send('window:minimizar'),
 	maximizar: (): void => ipcRenderer.send('window:maximizar'),
@@ -23,3 +24,10 @@ if (process.contextIsolated) {
 	// @ts-ignore (define in dts)
 	window.api = api
 }
+
+contextBridge.exposeInMainWorld('db', {
+	create: (key: string, item: any) => ipcRenderer.invoke('db:create', key, item),
+	read: (key: string) => ipcRenderer.invoke('db:read', key),
+	update: (key: string, id: number, changes: any) => ipcRenderer.invoke('db:update', key, id, changes),
+	delete: (key: string, id: number) => ipcRenderer.invoke('db:delete', key, id)
+})
