@@ -11,6 +11,3 @@ export default function NxcSetting() {
 		</div>
 	)
 }
-
-
-// style={{ display: 'flex', alignItems: 'center', gap: 8 }}
