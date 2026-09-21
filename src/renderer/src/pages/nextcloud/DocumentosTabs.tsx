@@ -17,6 +17,8 @@ function DropZone({ label, icon, kind, onFiles }: DropZoneProps): React.JSX.Elem
 		console.log(`[${kind}]`, accepted)
 		// TODO: subir a Nextcloud (guardar File[] por ahora)
 
+		console.log(kind);
+		
 
 
 	}
@@ -74,20 +76,32 @@ export default function DocumentosTabs(): React.JSX.Element {
 
 				{tab === 0 && (
 					<div className="docs__row">
-						<DropZone kind="sin-firmar" label="Sin firmar" icon={<LuFileUp size={40} />} />
-						<DropZone kind="firmado"    label="Firmado"    icon={<LuFileCheck size={40} />} />
+						<DropZone 
+							kind="sin-firmar" label="Sin firmar" 
+							icon={<LuFileUp size={40} />} />
+						<DropZone 
+							kind="firmado" label="Firmado" 
+							icon={<LuFileCheck size={40} />} />
 					</div>
 				)}
 				{tab === 1 && (
 					<div className="docs__row">
-						<DropZone kind="sin-firmar" label="Sin firmar" icon={<LuFileUp size={40} />} />
-						<DropZone kind="firmado"    label="Firmado"    icon={<LuFileCheck size={40} />} />
+						<DropZone 
+							kind="sin-firmar" label="Sin firmar"
+							icon={<LuFileUp size={40} />} />
+						<DropZone 
+							kind="firmado" label="Firmado"
+							icon={<LuFileCheck size={40} />} />
 					</div>
 				)}
 				{tab === 2 && (
 					<div className="docs__row">
-						<DropZone kind="sin-firmar" label="Sin firmar" icon={<LuFileUp size={40} />} />
-						<DropZone kind="firmado"    label="Firmado"    icon={<LuFileCheck size={40} />} />
+						<DropZone 
+							kind="sin-firmar" label="Sin firmar"
+							icon={<LuFileUp size={40} />} />
+						<DropZone 
+							kind="firmado" label="Firmado"
+							icon={<LuFileCheck size={40} />} />
 					</div>
 				)}
 
