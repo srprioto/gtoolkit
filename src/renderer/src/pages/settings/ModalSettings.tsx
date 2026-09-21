@@ -11,17 +11,17 @@ const ITEMS = [
 	{ 
 		label: "General",
 		icon: <LuSettings />,
-		content: <p>1111</p> 
+		content: <p>General</p> 
 	},
 	{ 
 		label: 'Qellqa',
 		icon: <LuPenTool />,
-		content: <p>22222</p> 
+		content: <p>Qellqa</p> 
 	},
 	{ 
-		label: 'Guardar Documentos',
+		label: 'Gestión documental',
 		icon: <LuSave />,
-		content: <p>333333</p> 
+		content: <p>Guardar Documentos</p> 
 	},
 ]
 

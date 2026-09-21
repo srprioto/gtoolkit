@@ -6,7 +6,7 @@ import UnirPdfs from './pages/UnirPdfs';
 import WordToPdf from './pages/WordPdf';
 import FirmaDigital from './pages/FirmaDigital';
 import VerificarFirma from './pages/VerificarFirma';
-import NextCloud from './pages/NextCloud';
+import NextCloud from './pages/nextcloud/NextCloud';
 import Qellqa from './pages/Qellqa';
 
 function App(): React.JSX.Element {
@@ -34,4 +34,7 @@ export default App;
 
 // https://react-icons.github.io/react-icons/icons/lu/
 // import { IconName } from "react-icons/lu"
+
+// https://react-icons.github.io/react-icons/icons/fc/
+// import { IconName } from "react-icons/fc";
 

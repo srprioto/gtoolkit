@@ -31,7 +31,7 @@ export default function Modal({ children, showModal, setShowModal, titulo }: Mod
 					</svg>
 				</button>
 				<div className="titulo_modal">
-					<h2>Configuración</h2>
+					<h3>{titulo}</h3>
 				</div>
 				<span>
 					{children}

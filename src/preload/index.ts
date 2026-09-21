@@ -6,6 +6,8 @@ const api = {
 	maximizar: (): void => ipcRenderer.send('window:maximizar'),
 	cerrar:    (): void => ipcRenderer.send('window:cerrar'),
 	abrirFirmaPeru: (): Promise<{ ok: boolean }> => ipcRenderer.invoke('abrir-firmapperu'),
+	abrirRuta: (ruta: string): Promise<{ ok: boolean; error: string }> =>
+    ipcRenderer.invoke('abrir-ruta', ruta),
 }
 
 if (process.contextIsolated) {

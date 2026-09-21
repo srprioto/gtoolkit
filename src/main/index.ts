@@ -5,104 +5,110 @@ import icon from '../../resources/icon.png?asset'
 import { spawn } from 'child_process'
 
 function createWindow(): void {
-  const mainWindow = new BrowserWindow({
-    width: 1100,
-    height: 670,
-    show: false,
-    frame: false,
-    autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
-    webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
-      sandbox: false,
-	  webviewTag: true
-    }
-  })
+	const mainWindow = new BrowserWindow({
+		width: 1100,
+		height: 670,
+		show: false,
+		frame: false,
+		autoHideMenuBar: true,
+		...(process.platform === 'linux' ? { icon } : {}),
+		webPreferences: {
+			preload: join(__dirname, '../preload/index.js'),
+			sandbox: false,
+			webviewTag: true
+		}
+	})
 
-   mainWindow.webContents.session.on('will-download', (_event, item) => {
-    item.on('done', (_e, state) => {
-      if (state === 'completed') {
-        console.log('Descarga completada:', item.getSavePath())
-      } else {
-        console.log('Descarga fallida:', state)
-      }
-    })
-  })
+	mainWindow.webContents.session.on('will-download', (_event, item) => {
+		item.on('done', (_e, state) => {
+			if (state === 'completed') {
+				console.log('Descarga completada:', item.getSavePath())
+			} else {
+				console.log('Descarga fallida:', state)
+			}
+		})
+	})
 
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show()
-  })
+	mainWindow.on('ready-to-show', () => {
+		mainWindow.show()
+	})
 
-  mainWindow.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url)
-    return { action: 'deny' }
-  })
+	mainWindow.webContents.setWindowOpenHandler((details) => {
+		shell.openExternal(details.url)
+		return { action: 'deny' }
+	})
 
-  if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
-  } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
-  }
+	if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
+		mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+	} else {
+		mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+	}
 }
 
 app.whenReady().then(() => {
-  electronApp.setAppUserModelId('com.electron')
+	electronApp.setAppUserModelId('com.electron')
 
-  app.on('browser-window-created', (_, window) => {
-    optimizer.watchWindowShortcuts(window)
-  })
+	app.on('browser-window-created', (_, window) => {
+		optimizer.watchWindowShortcuts(window)
+	})
 
-  ipcMain.on('ping', () => console.log('pong'))
+	ipcMain.on('ping', () => console.log('pong'))
 
-  ipcMain.on('window:minimizar', (e) => {
-    BrowserWindow.fromWebContents(e.sender)?.minimize()
-  })
+	ipcMain.on('window:minimizar', (e) => {
+		BrowserWindow.fromWebContents(e.sender)?.minimize()
+	})
 
-  ipcMain.on('window:maximizar', (e) => {
-    const win = BrowserWindow.fromWebContents(e.sender)
-    if (!win) return
-    win.isMaximized() ? win.unmaximize() : win.maximize()
-  })
+	ipcMain.on('window:maximizar', (e) => {
+		const win = BrowserWindow.fromWebContents(e.sender)
+		if (!win) return
+		win.isMaximized() ? win.unmaximize() : win.maximize()
+	})
 
-  ipcMain.on('window:cerrar', (e) => {
-    BrowserWindow.fromWebContents(e.sender)?.close()
-  })
+	ipcMain.on('window:cerrar', (e) => {
+		BrowserWindow.fromWebContents(e.sender)?.close()
+	})
 
-  createWindow()
+  	createWindow()
 
-  app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
+	app.on('activate', function () {
+		if (BrowserWindow.getAllWindows().length === 0) createWindow()
+	})
+
+	// abrir refirma
+	ipcMain.handle('abrir-firmapperu', async () => {
+		const basePath = app.isPackaged
+			? process.resourcesPath
+			: join(__dirname, '../../resources')
+
+		const exePath = join(
+			basePath,
+			'refirma',
+			'firm..tion_7905cfbaddd95851_0001.0001_81987131807f31c0',
+			'FirmaPeru.exe'
+		)
+
+		const child = spawn(exePath, [], {
+			detached: true,
+			stdio: 'ignore',
+			cwd: join(exePath, '..')
+		})
+		child.unref()
+
+		return { ok: true }
+	})
 
 
-ipcMain.handle('abrir-firmapperu', async () => {
-  const basePath = app.isPackaged
-    ? process.resourcesPath
-    : join(__dirname, '../../resources')
-
-  const exePath = join(
-    basePath,
-    'refirma',
-    'firm..tion_7905cfbaddd95851_0001.0001_81987131807f31c0',
-    'FirmaPeru.exe'
-  )
-
-  const child = spawn(exePath, [], {
-    detached: true,
-    stdio: 'ignore',
-    cwd: join(exePath, '..')
-  })
-  child.unref()
-
-  return { ok: true }
-})
-
+	// abrir rutas
+	ipcMain.handle('abrir-ruta', async (_e, ruta: string) => {
+		const err = await shell.openPath(ruta)
+		return { ok: err === '', error: err }
+	})
 
 
 })
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+	if (process.platform !== 'darwin') {
+		app.quit()
+	}
 })
