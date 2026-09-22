@@ -31,7 +31,7 @@ export default function DropdownNxc() {
 	const handleCargarPlantilla = (): void => {
 		setOpenMenu(false)
 		
-
+		console.log("asdfasdfasdf");
 
 	}
 	
