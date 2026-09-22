@@ -7,7 +7,7 @@ export default function NxcSetting() {
 
 
 	return (
-		<div className="stg_nextcloud">
+		<div className="stg">
 
 			<div className='categ_stgs'>
 				<h3 className='subtit_stgs'>Conectar</h3>
@@ -16,6 +16,11 @@ export default function NxcSetting() {
 					keyValue="ruta_desktop" 
 					descripcion="Ruta de NextCloud" 
 				/>
+			</div>
+
+			<div className='categ_stgs'>
+				<h3 className='subtit_stgs'>Documentos</h3>
+				<FileSettingsSimple/>
 			</div>
 
 
@@ -29,10 +34,7 @@ export default function NxcSetting() {
 				
 			</div>
 
-			<div className='categ_stgs'>
-				<h3 className='subtit_stgs'>Documentos</h3>
-				<FileSettingsSimple/>
-			</div>
+
 
 		</div>
 	)

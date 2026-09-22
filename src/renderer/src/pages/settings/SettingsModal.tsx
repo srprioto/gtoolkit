@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { LuPenTool, LuSave, LuSettings } from 'react-icons/lu'
 import Modal from '@renderer/components/modals/Modal'
-import NxcSetting from './nxcloud/NxcSetting'
+import NxcSetting from './NxcSetting'
+import GeneralSetting from './GeneralSetting'
 
 interface Props {
 	showModal: boolean
@@ -12,7 +13,7 @@ const ITEMS = [
 	{ 
 		label: "General",
 		icon: <LuSettings />,
-		content: <p>General</p> 
+		content: <GeneralSetting/>
 	},
 	{ 
 		label: 'Qellqa',
@@ -26,7 +27,7 @@ const ITEMS = [
 	},
 ]
 
-export default function ModalSettings({ showModal, setShowModal }:Props) {
+export default function SettingsModal({ showModal, setShowModal }:Props) {
 
 	const [active, setActive] = useState(0)
 

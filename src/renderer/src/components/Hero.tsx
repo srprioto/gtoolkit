@@ -1,7 +1,7 @@
 import iconGeresa from '@renderer/assets/imgs/geresa.jpg'
 import { LuSettings } from 'react-icons/lu';
 import { useState } from 'react';
-import ModalSettings from '../pages/settings/ModalSettings';
+import SettingsModal from '../pages/settings/SettingsModal';
 
 function Hero(): React.JSX.Element {
 
@@ -26,7 +26,7 @@ function Hero(): React.JSX.Element {
 			
 			<p className="hero__subtitle">Selecciona una opción para continuar</p>
 
-			<ModalSettings
+			<SettingsModal
 				showModal={showModal}
 				setShowModal={setShowModal}
 			/>
