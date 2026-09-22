@@ -701,3 +701,32 @@ button {
 .check_item input[type="checkbox"] {
 	cursor: pointer;
 }
+
+
+// draganddrop
+.dropzone-wrapper { position: relative; }
+
+.dropzone__btns {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.dropzone__btns button {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: 18px;
+	transition: background .15s;
+}
+
+.dropzone__btns button:hover { background: rgba(255,255,255,.08); }
+
+.dropzone.is-done { border-color: #3ba55d; }
