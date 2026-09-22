@@ -8,26 +8,27 @@ import FirmaDigital from './pages/FirmaDigital';
 import VerificarFirma from './pages/VerificarFirma';
 import NextCloud from './pages/nextcloud/NextCloud';
 import Qellqa from './pages/Qellqa';
+import { useApps } from './context/AppsContext';
 
 function App(): React.JSX.Element {
+	const { mostrarApp } = useApps()
+
 	return (
 		<div className="app">
 			<TitleBar />
 			<main className="app__content">
 				<Hero />
 				<section className="grid">
-					<Qellqa />
-					<FirmaDigital />
-					<NextCloud />
-					<UnirPdfs />
-					<WordToPdf />
-					<VerificarFirma />
-					{/* <Scanner /> */}
-
+					{mostrarApp['Qellqa'] && <Qellqa />}
+					{mostrarApp['Firma Digital'] && <FirmaDigital />}
+					{mostrarApp['Guardar Documentos'] && <NextCloud />}
+					{mostrarApp["Unir PDF's"] && <UnirPdfs />}
+					{mostrarApp["Word a PDF's"] && <WordToPdf />}
+					{mostrarApp['Verificar Firma'] && <VerificarFirma />}
 				</section>
 			</main>
 		</div>
-	);
+	)
 }
 
 export default App;

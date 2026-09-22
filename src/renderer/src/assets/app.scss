@@ -623,7 +623,7 @@ button {
 }
 
 
-// imputs settings
+// imputs y forms settings
 .input_stg {
 	display: flex;
 	align-items: center;
@@ -681,4 +681,23 @@ button {
 	&:hover {
 		background: #f5f5f5;
 	}
+}
+
+.checks_grid {
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 16px;
+    padding: 8px 0;
+}
+
+.check_item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.check_item input[type="checkbox"] {
+	cursor: pointer;
 }

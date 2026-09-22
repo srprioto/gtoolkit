@@ -19,6 +19,7 @@ declare global {
 			read: (key: string) => Promise<any[]>
 			update: (key: string, id: number, changes: any) => Promise<any>
 			delete: (key: string, id: number) => Promise<boolean>
+			set: (key: string, item: any) => Promise<any>   // ← AGREGA
 		}
 	}
 }

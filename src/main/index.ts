@@ -177,6 +177,11 @@ app.whenReady().then(() => {
 		return { ok: err === '', error: err, ruta }
 	})
 
+	ipcMain.handle('db:set', (_, key, item) => {
+		store.set(key, item)
+		return item
+	})
+
 
 })
 
