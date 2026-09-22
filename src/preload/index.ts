@@ -8,6 +8,8 @@ const api = {
   abrirFirmaPeru: (): Promise<{ ok: boolean }> => ipcRenderer.invoke('abrir-firmapperu'),
   abrirRuta: (ruta: string): Promise<{ ok: boolean; error: string }> =>
     ipcRenderer.invoke('abrir-ruta', ruta),
+  abrirPlantilla: (): Promise<{ ok: boolean; error: string; ruta: string }> =>
+    ipcRenderer.invoke('abrir-plantilla'),
   copyReadonly: (srcPath: string, destFolder: string) =>
     ipcRenderer.invoke('file:copyReadonly', srcPath, destFolder),
   selectDocx: (): Promise<{ ok: boolean; path?: string }> =>

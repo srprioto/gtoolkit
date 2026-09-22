@@ -9,6 +9,12 @@ export default function FileSettingsSimple() {
 	// Carpeta destino (en dev, ruta del proyecto; en prod, usa app.getPath)
 	const DEST_FOLDER = 'src/renderer/src/assets/docs'
 
+	// Extrae el nombre del archivo con extensión desde una ruta
+	// const getFileName = (path: string) => {
+	// 	if (!path) return ''
+	// 	return path.split(/[/\\]/).pop() || path
+	// }
+
 	const handleEdit = () => setEditing(true)
 
 	const handleCancel = () => {
@@ -24,8 +30,12 @@ export default function FileSettingsSimple() {
 	}
 
 	const procesarArchivo = async (srcPath: string) => {
-		setRuta(srcPath)
 		const res = await window.api.copyReadonly(srcPath, DEST_FOLDER)
+		if (!res.ok) {
+			console.error('Error:', res.error)
+			return
+		}
+		setRuta(res.destPath ?? '')
 		console.log('Resultado:', res)
 	}
 
@@ -40,25 +50,20 @@ export default function FileSettingsSimple() {
 			return
 		}
 
-		// Ruta absoluta del archivo soltado
 		const srcPath = window.api.getFilePath(file)
 		if (!srcPath) return
 
-		setRuta(srcPath)
-
-		// Copiar + marcar readonly
 		const res = await window.api.copyReadonly(srcPath, DEST_FOLDER)
 		if (!res.ok) {
 			console.error('Error:', res.error)
 			return
 		}
 
+		setRuta(res.destPath ?? '')
 		console.log('Copiado como solo lectura en:', res.destPath)
 	}
 
 	const handleConfirm = async () => {
-		// Si quieres guardar la ruta en electron-store, hazlo aquí:
-		// await window.db.create('docs', { ruta })
 		setEditing(false)
 	}
 
@@ -69,7 +74,7 @@ export default function FileSettingsSimple() {
 
 	const handleDragLeave = () => setDragOver(false)
 
-  	return (
+	return (
 		<div className="input_stg">
 			<span className="input_desc_stg">Documento Word</span>
 
@@ -82,10 +87,10 @@ export default function FileSettingsSimple() {
 					onClick={handleClick}
 					style={{ cursor: 'pointer' }}
 				>
-					{ruta || 'Arrastra un .docx o haz clic aquí'}
+					{ruta ? "plantilla.docx" : 'Arrastra un .docx o haz clic aquí'}
 				</div>
 			) : (
-				<span className="input_add_stg">{ruta || '—'}</span>
+				<span className="input_add_stg">{ruta ? "plantilla.docx" : '—'}</span>
 			)}
 
 			{editing ? (

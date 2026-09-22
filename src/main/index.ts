@@ -8,6 +8,8 @@ import store from './store'
 import fs from 'node:fs'
 import path from 'node:path'
 
+
+
 function createWindow(): void {
 	const mainWindow = new BrowserWindow({
 		width: 1100,
@@ -133,36 +135,47 @@ app.whenReady().then(() => {
 
 
 
-	// mover archivos plantilla word
-ipcMain.handle('file:copyReadonly', async (_, srcPath: string, destFolder: string) => {
-  try {
-    const absoluteDest = path.isAbsolute(destFolder)
-      ? destFolder
-      : path.join(process.cwd(), destFolder)
+	// mover archivos plantilla word (SIEMPRE como plantilla.docx)
+	ipcMain.handle('file:copyReadonly', async (_, srcPath: string, destFolder: string) => {
+		try {
+			const absoluteDest = path.isAbsolute(destFolder)
+			? destFolder
+			: path.join(process.cwd(), destFolder)
 
-    await fs.promises.mkdir(absoluteDest, { recursive: true })
+			await fs.promises.mkdir(absoluteDest, { recursive: true })
 
-    const fileName = path.basename(srcPath)
-    const destPath = path.join(absoluteDest, fileName)
+			const destPath = path.join(absoluteDest, 'plantilla.docx')
 
-    await fs.promises.copyFile(srcPath, destPath)
-    await fs.promises.chmod(destPath, 0o444)
+			// Quitar readonly si ya existe, para poder sobrescribir
+			await fs.promises.chmod(destPath, 0o666).catch(() => {})
 
-    return { ok: true, destPath }
-  } catch (err: any) {
-    console.error('copyReadonly error:', err)
-    return { ok: false, error: err.message }
-  }
-})
+			await fs.promises.copyFile(srcPath, destPath)
+			await fs.promises.chmod(destPath, 0o444)
 
-ipcMain.handle('file:selectDocx', async () => {
-  const result = await dialog.showOpenDialog({
-    properties: ['openFile'],
-    filters: [{ name: 'Word', extensions: ['docx'] }]
-  })
-  if (result.canceled || !result.filePaths[0]) return { ok: false }
-  return { ok: true, path: result.filePaths[0] }
-})
+			return { ok: true, destPath }
+		} catch (err: any) {
+			console.error('copyReadonly error:', err)
+			return { ok: false, error: err.message }
+		}
+	})
+
+	ipcMain.handle('file:selectDocx', async () => {
+		const result = await dialog.showOpenDialog({
+			properties: ['openFile'],
+			filters: [{ name: 'Word', extensions: ['docx'] }]
+		})
+		if (result.canceled || !result.filePaths[0]) return { ok: false }
+		return { ok: true, path: result.filePaths[0] }
+	})
+
+	ipcMain.handle('abrir-plantilla', async () => {
+		const ruta = app.isPackaged
+		? path.join(process.resourcesPath, 'docs', 'plantilla.docx')
+		: path.join(process.cwd(), 'src/renderer/src/assets/docs/plantilla.docx')
+
+		const err = await shell.openPath(ruta)
+		return { ok: err === '', error: err, ruta }
+	})
 
 
 })

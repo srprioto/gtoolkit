@@ -28,11 +28,10 @@ export default function DropdownNxc() {
 		if (!res?.ok) console.error('Error:', res?.error)
 	}
 
-	const handleCargarPlantilla = (): void => {
+	const handleCargarPlantilla = async (): Promise<void> => {
 		setOpenMenu(false)
-		
-		console.log("asdfasdfasdf");
-
+		const res = await window.api.abrirPlantilla()
+		if (!res.ok) console.error('Error al abrir:', res.error, '→', res.ruta)
 	}
 	
 
@@ -61,7 +60,7 @@ export default function DropdownNxc() {
 						className="dropdown_nextcloud__item"
 						onClick={handleCargarPlantilla}
 					>
-						<LuFilePlus2 size={18} /><span>Cargar plantilla</span>
+						<LuFilePlus2 size={18} /><span>Abrir plantilla</span>
 					</button>
 
 				</div>
