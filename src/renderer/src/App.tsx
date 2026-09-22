@@ -9,6 +9,7 @@ import VerificarFirma from './pages/VerificarFirma';
 import NextCloud from './pages/nextcloud/NextCloud';
 import Qellqa from './pages/Qellqa';
 import { useApps } from './context/AppsContext';
+import EmailGeresa from './pages/Email';
 
 function App(): React.JSX.Element {
 	const { mostrarApp } = useApps()
@@ -25,6 +26,7 @@ function App(): React.JSX.Element {
 					{mostrarApp["Unir PDF's"] && <UnirPdfs />}
 					{mostrarApp["Word a PDF's"] && <WordToPdf />}
 					{mostrarApp['Verificar Firma'] && <VerificarFirma />}
+					{mostrarApp['E-mail'] && <EmailGeresa />}
 				</section>
 			</main>
 		</div>

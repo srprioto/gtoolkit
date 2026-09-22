@@ -13,7 +13,8 @@ const DEFAULT_APPS: AppsState = {
 	'Guardar Documentos': true,
 	"Unir PDF's": true,
 	"Word a PDF's": true,
-	'Verificar Firma': true
+	'Verificar Firma': true,
+	'E-mail': true,
 }
 
 const AppsContext = createContext<AppsContextType | null>(null)
