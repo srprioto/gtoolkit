@@ -1,8 +1,11 @@
 import ImputSettingsSimple from "@renderer/components/forms/input_settings_simple";
 import JerarquiasAreasNxc from "../nextcloud/JerarquiasAreasNxc";
+import { useState } from "react";
 
 
 export default function FirstPage({handleStart}) {
+
+	const [rdyNext, setRdyNext] = useState<boolean>(false);
 
 
 	return (
@@ -27,7 +30,10 @@ export default function FirstPage({handleStart}) {
 
 
 			<div className="box_btn_start">
-				<button className="btn_start" onClick={handleStart}>
+				<button 
+					className={"btn_start" + (rdyNext ? "" : " btn_inact")} 
+					onClick={ rdyNext ? handleStart : null}
+				>
 					Comenzar
 				</button>
 			</div>

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { LuPencil, LuCheck, LuX } from 'react-icons/lu'
 
 interface Props {
-	keyItem: string       // a qué bloque pertenece (ej. 'nxc')
-	keyValue: string      // qué campo dentro del bloque (ej. 'ruta')
+	keyItem: string // nombre del bloque al que corresopnde
+	keyValue: string // nombre del valor
 	descripcion: string
 }
 
@@ -35,6 +35,7 @@ export default function ImputSettingsSimple({ keyItem, keyValue, descripcion }: 
 		setEditing(false)
 		setValue(items[0]?.[keyValue] || '')
 	}
+
 
 	return (
 		<div className="input_stg">
