@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { LuPencil, LuCheck, LuX } from 'react-icons/lu'
 
 interface Props {
-  keyItem: string       // a qué bloque pertenece (ej. 'nxc')
-  keyValue: string      // qué campo dentro del bloque (ej. 'ruta')
-  descripcion: string
+	keyItem: string       // a qué bloque pertenece (ej. 'nxc')
+	keyValue: string      // qué campo dentro del bloque (ej. 'ruta')
+	descripcion: string
 }
 
 export default function ImputSettingsSimple({ keyItem, keyValue, descripcion }: Props) {
@@ -58,3 +58,6 @@ export default function ImputSettingsSimple({ keyItem, keyValue, descripcion }: 
 		</div>
 	)
 }
+
+
+

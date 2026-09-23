@@ -24,11 +24,49 @@ button {
 }
 
 
-// general
+// ======= GENERAL =======
 
-// p{
-// 	color: #000000;
-// }
+// first page
+.first_page{
+	box-sizing: border-box;
+    padding: 50px;
+    display: flex;
+    height: 95vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+	.bienvenida{
+		width: 450px;
+		padding-bottom: 40px;
+		text-align: center;
+		// h2{
+		// 	margin-block: 20px;
+		// }
+		
+	}
+
+	.box_btn_start{
+		margin: auto 0 20px 0;
+		
+		.btn_start{
+			display: inline-block;
+			box-sizing: border-box;
+			padding: 13px 20px;
+			// background-color: var(--bg_btn);
+			border-radius: 10px;
+			font-weight: 700;
+			// box-shadow: 0px 0px 5px 1px #b9b9b9;
+			border: 1px solid #d0d0d0;
+			&:hover {
+				background-color: var(--bg_btn);
+			}
+		}
+	}
+}
+
+
+
+
 
 
 // ============ App shell ============
@@ -730,3 +768,160 @@ button {
 .dropzone__btns button:hover { background: rgba(255,255,255,.08); }
 
 .dropzone.is-done { border-color: #3ba55d; }
+
+
+
+// jerarquias
+$bg-base:      #ffffff;
+$bg-surface:   #f9fafb;
+$border:       #e5e7eb;
+$border-hover: #d1d5db;
+$text-primary: #111827;
+$text-muted:   #6b7280;
+$accent:       #6366f1;
+$radius-sm:    8px;
+
+.jerarquias {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&__title {
+		font-size: 14px;
+		font-weight: 600;
+		color: $text-primary;
+		margin: 0;
+		text-align: center;
+	}
+
+	&__switches {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 14px 20px;
+		padding: 14px 16px;
+		background: $bg-surface;
+		border: 1px solid $border;
+		border-radius: $radius-sm;
+	}
+}
+// Select (nivel 1)
+.select {
+	position: relative;
+	width: 100%;
+	max-width: 320px;
+
+	&__input {
+		appearance: none;
+		-webkit-appearance: none;
+		width: 100%;
+		padding: 10px 36px 10px 14px;
+		font-size: 13px;
+		color: $text-primary;
+		background: $bg-base;
+		border: 1px solid $border;
+		border-radius: $radius-sm;
+		cursor: pointer;
+		transition: border-color .15s, box-shadow .15s, background .15s;
+
+		&:hover {
+			border-color: $border-hover;
+			background: $bg-surface;
+		}
+
+		&:focus {
+			outline: none;
+			border-color: $accent;
+			box-shadow: 0 0 0 3px rgba($accent, .15);
+			background: $bg-base;
+		}
+
+		option[value=""] {
+			color: $text-muted;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		color: $text-muted;
+		font-size: 14px;
+		transition: color .15s;
+	}
+
+	&:hover &__icon {
+		color: $text-primary;
+	}
+}
+
+// Switch (nivel 2)
+.switch {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13px;
+	color: $text-muted;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+
+	// Input oculto pero accesible
+	input {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		width: 0;
+		height: 0;
+	}
+
+	&__track {
+		position: relative;
+		width: 34px;
+		height: 18px;
+		background: $border-hover;
+		border-radius: 999px;
+		flex-shrink: 0;
+		transition: background .2s ease;
+	}
+
+	&__thumb {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: 14px;
+		height: 14px;
+		background: #fff;
+		border-radius: 50%;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+		transition: transform .2s ease;
+	}
+
+	&__label {
+		transition: color .15s;
+	}
+
+	// Hover
+	&:hover &__label {
+		color: $text-primary;
+	}
+
+	// Focus accesible (teclado)
+	input:focus-visible + &__track {
+		box-shadow: 0 0 0 3px rgba($accent, .25);
+	}
+
+	// Estado activo
+	input:checked + &__track {
+		background: $accent;
+	}
+
+	input:checked + &__track &__thumb {
+		transform: translateX(16px);
+	}
+
+	input:checked ~ &__label {
+		color: $text-primary;
+	}
+}

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { LuPenTool, LuSave, LuSettings } from 'react-icons/lu'
 import Modal from '@renderer/components/modals/Modal'
-import NxcSetting from './NxcSetting'
-import GeneralSetting from './GeneralSetting'
+import NxcSetting from './nextcloud/NxcSetting'
+import GeneralSetting from './general/GeneralSetting'
 
 interface Props {
 	showModal: boolean

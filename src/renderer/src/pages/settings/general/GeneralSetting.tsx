@@ -20,6 +20,11 @@ export default function GeneralSetting() {
 						</label>
 					))}
 				</div>
+
+
+
+
+				
 			</div>
 		</div>
 	)

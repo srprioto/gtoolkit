@@ -84,23 +84,23 @@ export default function DocumentosTabs(): React.JSX.Element {
 	// Destinos por pestaña y por tipo
 	const DEIS = {
 		DE: {
-			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\Direccion Ejecutiva de Inteligencia Sanitaria\Firmado",
-			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\Direccion Ejecutiva de Inteligencia Sanitaria\Por firmar"
+			firmado: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\Direccion Ejecutiva de Inteligencia Sanitaria\\Firmado",
+			sinFirmar: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\Direccion Ejecutiva de Inteligencia Sanitaria\\Por firmar"
 		},
 		
 		emergencias: {
-			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EMERGENCIAS\Firmado",
-			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EMERGENCIAS\Por firmar"
+			firmado: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\EMERGENCIAS\\Firmado",
+			sinFirmar: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\EMERGENCIAS\\Por firmar"
 		},
 
 		epidemiologia: {
-			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EPIDEMIOLOGIA\Firmado",
-			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EPIDEMIOLOGIA\Por firmar"
+			firmado: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\EPIDEMIOLOGIA\\Firmado",
+			sinFirmar: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\EPIDEMIOLOGIA\\Por firmar"
 		},
 
 		estadistica: {
-			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\ESTADISTICA\Firmado",
-			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\ESTADISTICA\Por firmar"
+			firmado: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\ESTADISTICA\\Firmado",
+			sinFirmar: "C:\\Users\\RenatoLuna\\Nextcloud\\INTELIGENCIA SANITARIA\\ESTADISTICA\\Por firmar"
 		},
 
 	}
@@ -139,62 +139,70 @@ export default function DocumentosTabs(): React.JSX.Element {
 			<div className="docs__panel">
 
 				{tab === 1 && (
-					<div className="docs__row">
-						<DropZone
-							label="Sin firmar"
-							icon={<LuFile size={40} />}
-							destFolder={DEIS.DE.sinFirmar}
-						/>
-						<DropZone
-							label="Firmado"
-							icon={<LuFileCheck size={40} />}
-							destFolder={DEIS.DE.firmado}
-						/>
+					<div>
+						<div className="docs__row">
+							<DropZone
+								label="Sin firmar"
+								icon={<LuFile size={40} />}
+								destFolder={DEIS.DE.sinFirmar}
+							/>
+							<DropZone
+								label="Firmado"
+								icon={<LuFileCheck size={40} />}
+								destFolder={DEIS.DE.firmado}
+							/>
+						</div>
 					</div>
 				)}
 
 				{tab === 2 && (
-					<div className="docs__row">
-						<DropZone
-							label="Sin firmar"
-							icon={<LuFile size={40} />}
-							destFolder={DEIS.estadistica.sinFirmar}
-						/>
-						<DropZone
-							label="Firmado"
-							icon={<LuFileCheck size={40} />}
-							destFolder={DEIS.estadistica.firmado}
-						/>
+					<div>
+						<div className="docs__row">
+							<DropZone
+								label="Sin firmar"
+								icon={<LuFile size={40} />}
+								destFolder={DEIS.estadistica.sinFirmar}
+							/>
+							<DropZone
+								label="Firmado"
+								icon={<LuFileCheck size={40} />}
+								destFolder={DEIS.estadistica.firmado}
+							/>
+						</div>
 					</div>
 				)}
 
 				{tab === 3 && (
-					<div className="docs__row">
-						<DropZone
-							label="Sin firmar"
-							icon={<LuFile size={40} />}
-							destFolder={DEIS.epidemiologia.sinFirmar}
-						/>
-						<DropZone
-							label="Firmado"
-							icon={<LuFileCheck size={40} />}
-							destFolder={DEIS.epidemiologia.firmado}
-						/>
+					<div>
+						<div className="docs__row">
+							<DropZone
+								label="Sin firmar"
+								icon={<LuFile size={40} />}
+								destFolder={DEIS.epidemiologia.sinFirmar}
+							/>
+							<DropZone
+								label="Firmado"
+								icon={<LuFileCheck size={40} />}
+								destFolder={DEIS.epidemiologia.firmado}
+							/>
+						</div>
 					</div>
 				)}
 
 				{tab === 4 && (
-					<div className="docs__row">
-						<DropZone
-							label="Sin firmar"
-							icon={<LuFile size={40} />}
-							destFolder={DEIS.emergencias.sinFirmar}
-						/>
-						<DropZone
-							label="Firmado"
-							icon={<LuFileCheck size={40} />}
-							destFolder={DEIS.emergencias.firmado}
-						/>
+					<div>
+						<div className="docs__row">
+							<DropZone
+								label="Sin firmar"
+								icon={<LuFile size={40} />}
+								destFolder={DEIS.emergencias.sinFirmar}
+							/>
+							<DropZone
+								label="Firmado"
+								icon={<LuFileCheck size={40} />}
+								destFolder={DEIS.emergencias.firmado}
+							/>
+						</div>
 					</div>
 				)}
 
