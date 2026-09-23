@@ -10,7 +10,11 @@ declare global {
 			abrirFirmaPeru: () => Promise<{ ok: boolean }>
 			abrirRuta: (ruta: string) => Promise<{ ok: boolean; error: string }>
 			abrirPlantilla: () => Promise<{ ok: boolean; error: string; ruta: string }>
-			copyReadonly: (srcPath: string, destFolder: string) => Promise<{ ok: boolean; destPath?: string; error?: string }>
+			copyReadonly: (
+				srcPath: string,
+				destFolder: string,
+				destName?: string
+			) => Promise<{ ok: boolean; destPath?: string; error?: string }>
 			getFilePath: (file: File) => string
 			selectDocx: () => Promise<{ ok: boolean; path?: string }>
 		}

@@ -30,13 +30,12 @@ export default function FileSettingsSimple() {
 	}
 
 	const procesarArchivo = async (srcPath: string) => {
-		const res = await window.api.copyReadonly(srcPath, DEST_FOLDER)
+		const res = await window.api.copyReadonly(srcPath, DEST_FOLDER, 'plantilla.docx')
 		if (!res.ok) {
 			console.error('Error:', res.error)
 			return
 		}
 		setRuta(res.destPath ?? '')
-		console.log('Resultado:', res)
 	}
 
 	const handleDrop = async (e: React.DragEvent) => {
@@ -53,14 +52,13 @@ export default function FileSettingsSimple() {
 		const srcPath = window.api.getFilePath(file)
 		if (!srcPath) return
 
-		const res = await window.api.copyReadonly(srcPath, DEST_FOLDER)
+		const res = await window.api.copyReadonly(srcPath, DEST_FOLDER, 'plantilla.docx')
 		if (!res.ok) {
 			console.error('Error:', res.error)
 			return
 		}
 
 		setRuta(res.destPath ?? '')
-		console.log('Copiado como solo lectura en:', res.destPath)
 	}
 
 	const handleConfirm = async () => {

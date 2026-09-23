@@ -136,28 +136,28 @@ app.whenReady().then(() => {
 
 
 	// mover archivos plantilla word (SIEMPRE como plantilla.docx)
-	ipcMain.handle('file:copyReadonly', async (_, srcPath: string, destFolder: string) => {
-		try {
-			const absoluteDest = path.isAbsolute(destFolder)
-			? destFolder
-			: path.join(process.cwd(), destFolder)
+ipcMain.handle('file:copyReadonly', async (_, srcPath: string, destFolder: string, destName?: string) => {
+  try {
+    const absoluteDest = path.isAbsolute(destFolder)
+      ? destFolder
+      : path.join(process.cwd(), destFolder)
 
-			await fs.promises.mkdir(absoluteDest, { recursive: true })
+    await fs.promises.mkdir(absoluteDest, { recursive: true })
 
-			const destPath = path.join(absoluteDest, 'plantilla.docx')
+    // Si viene destName, lo usa. Si no, mantiene el nombre original.
+    const fileName = destName || path.basename(srcPath)
+    const destPath = path.join(absoluteDest, fileName)
 
-			// Quitar readonly si ya existe, para poder sobrescribir
-			await fs.promises.chmod(destPath, 0o666).catch(() => {})
+    await fs.promises.chmod(destPath, 0o666).catch(() => {})
+    await fs.promises.copyFile(srcPath, destPath)
+    await fs.promises.chmod(destPath, 0o444)
 
-			await fs.promises.copyFile(srcPath, destPath)
-			await fs.promises.chmod(destPath, 0o444)
-
-			return { ok: true, destPath }
-		} catch (err: any) {
-			console.error('copyReadonly error:', err)
-			return { ok: false, error: err.message }
-		}
-	})
+    return { ok: true, destPath }
+  } catch (err: any) {
+    console.error('copyReadonly error:', err)
+    return { ok: false, error: err.message }
+  }
+})
 
 	ipcMain.handle('file:selectDocx', async () => {
 		const result = await dialog.showOpenDialog({

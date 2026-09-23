@@ -2,17 +2,14 @@ import { useState } from 'react'
 import { useDropzone, FileRejection } from 'react-dropzone'
 import { LuFileCheck, LuFile, LuCheck, LuX } from 'react-icons/lu'
 
-type DropKind = 'sin-firmar' | 'firmado'
-
 interface DropZoneProps {
 	label: string
-	kind: DropKind
 	icon: React.JSX.Element
 	destFolder?: string
 	onFiles?: (files: File[]) => void
 }
 
-function DropZone({ label, icon, kind, destFolder, onFiles }: DropZoneProps): React.JSX.Element {
+function DropZone({ label, icon, destFolder, onFiles }: DropZoneProps): React.JSX.Element {
 	const [pending, setPending] = useState<File[]>([])
 	const [copiado, setCopiado] = useState(false)
 
@@ -82,31 +79,57 @@ function DropZone({ label, icon, kind, destFolder, onFiles }: DropZoneProps): Re
 }
 
 export default function DocumentosTabs(): React.JSX.Element {
-	const [tab, setTab] = useState<number>(0)
+	const [tab, setTab] = useState<number>(1)
 
-	const DEST = {
-		0: 'C:\\Users\\RenatoLuna\\Desktop\\Nueva carpeta',
-		1: 'C:\\Users\\RenatoLuna\\Desktop\\Nueva carpeta',
-		2: 'C:\\Users\\RenatoLuna\\Desktop\\Nueva carpeta'
+	// Destinos por pestaña y por tipo
+	const DEIS = {
+		DE: {
+			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\Direccion Ejecutiva de Inteligencia Sanitaria\Firmado",
+			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\Direccion Ejecutiva de Inteligencia Sanitaria\Por firmar"
+		},
+		
+		emergencias: {
+			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EMERGENCIAS\Firmado",
+			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EMERGENCIAS\Por firmar"
+		},
+
+		epidemiologia: {
+			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EPIDEMIOLOGIA\Firmado",
+			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\EPIDEMIOLOGIA\Por firmar"
+		},
+
+		estadistica: {
+			firmado: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\ESTADISTICA\Firmado",
+			sinFirmar: "C:\Users\RenatoLuna\Nextcloud\INTELIGENCIA SANITARIA\ESTADISTICA\Por firmar"
+		},
+
 	}
+	
 
 	return (
 		<div className="docs">
 			<nav className="docs__tabs">
-				<button
-					className={`docs__tab ${tab === 0 ? 'is-active' : ''}`}
-					onClick={() => setTab(0)}
-				>D. E. de Estadística</button>
 
 				<button
 					className={`docs__tab ${tab === 1 ? 'is-active' : ''}`}
 					onClick={() => setTab(1)}
-				>D. E. de Epidemiología</button>
+				>D.E. Inteligencia Sanitaria</button>
 
 				<button
 					className={`docs__tab ${tab === 2 ? 'is-active' : ''}`}
 					onClick={() => setTab(2)}
-				>D. E. de Emergencias</button>
+				>Estadística</button>
+
+				<button
+					className={`docs__tab ${tab === 3 ? 'is-active' : ''}`}
+					onClick={() => setTab(3)}
+				>Epidemiología</button>
+
+				<button
+					className={`docs__tab ${tab === 4 ? 'is-active' : ''}`}
+					onClick={() => setTab(4)}
+				>Emergencias</button>
+
 			</nav>
 
 			<p className='docs__descripcion'>
@@ -114,41 +137,69 @@ export default function DocumentosTabs(): React.JSX.Element {
 			</p>
 
 			<div className="docs__panel">
-				{tab === 0 && (
-					<div className="docs__row">
-						<DropZone kind="sin-firmar" label="Sin firmar" icon={<LuFile size={40} />} />
-						<DropZone
-							kind="firmado"
-							label="Firmado"
-							icon={<LuFileCheck size={40} />}
-							destFolder={DEST[0]}
-						/>
-					</div>
-				)}
 
 				{tab === 1 && (
 					<div className="docs__row">
-						<DropZone kind="sin-firmar" label="Sin firmar" icon={<LuFile size={40} />} />
 						<DropZone
-							kind="firmado"
+							label="Sin firmar"
+							icon={<LuFile size={40} />}
+							destFolder={DEIS.DE.sinFirmar}
+						/>
+						<DropZone
 							label="Firmado"
 							icon={<LuFileCheck size={40} />}
-							destFolder={DEST[1]}
+							destFolder={DEIS.DE.firmado}
 						/>
 					</div>
 				)}
 
 				{tab === 2 && (
 					<div className="docs__row">
-						<DropZone kind="sin-firmar" label="Sin firmar" icon={<LuFile size={40} />} />
 						<DropZone
-							kind="firmado"
+							label="Sin firmar"
+							icon={<LuFile size={40} />}
+							destFolder={DEIS.estadistica.sinFirmar}
+						/>
+						<DropZone
 							label="Firmado"
 							icon={<LuFileCheck size={40} />}
-							destFolder={DEST[2]}
+							destFolder={DEIS.estadistica.firmado}
 						/>
 					</div>
 				)}
+
+				{tab === 3 && (
+					<div className="docs__row">
+						<DropZone
+							label="Sin firmar"
+							icon={<LuFile size={40} />}
+							destFolder={DEIS.epidemiologia.sinFirmar}
+						/>
+						<DropZone
+							label="Firmado"
+							icon={<LuFileCheck size={40} />}
+							destFolder={DEIS.epidemiologia.firmado}
+						/>
+					</div>
+				)}
+
+				{tab === 4 && (
+					<div className="docs__row">
+						<DropZone
+							label="Sin firmar"
+							icon={<LuFile size={40} />}
+							destFolder={DEIS.emergencias.sinFirmar}
+						/>
+						<DropZone
+							label="Firmado"
+							icon={<LuFileCheck size={40} />}
+							destFolder={DEIS.emergencias.firmado}
+						/>
+					</div>
+				)}
+
+
+
 			</div>
 		</div>
 	)

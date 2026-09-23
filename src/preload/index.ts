@@ -10,8 +10,8 @@ const api = {
     ipcRenderer.invoke('abrir-ruta', ruta),
   abrirPlantilla: (): Promise<{ ok: boolean; error: string; ruta: string }> =>
     ipcRenderer.invoke('abrir-plantilla'),
-  copyReadonly: (srcPath: string, destFolder: string) =>
-    ipcRenderer.invoke('file:copyReadonly', srcPath, destFolder),
+copyReadonly: (srcPath: string, destFolder: string, destName?: string) =>
+  ipcRenderer.invoke('file:copyReadonly', srcPath, destFolder, destName),
   selectDocx: (): Promise<{ ok: boolean; path?: string }> =>
     ipcRenderer.invoke('file:selectDocx'),
   getFilePath: (file: File): string => webUtils.getPathForFile(file)
