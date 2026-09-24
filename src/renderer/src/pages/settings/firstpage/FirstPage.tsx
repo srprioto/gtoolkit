@@ -1,6 +1,6 @@
-import ImputSettingsSimple from "@renderer/components/forms/input_settings_simple";
-import JerarquiasAreasNxc from "../nextcloud/JerarquiasAreasNxc";
-import { useEffect, useState } from "react";
+import JerarquiasNxcFirstPage from "../nextcloud/JerarquiasNxcFirstPage";
+import { useState } from "react";
+import ImputSimpleFirstPage from "../nextcloud/ImputSimpleFirstPage";
 
 
 export default function FirstPage({handleStart}) {
@@ -8,7 +8,7 @@ export default function FirstPage({handleStart}) {
 	const [rdyNext, setRdyNext] = useState<boolean>(false);
 
 	
-	const [text, setText] = useState<string>("");
+	const [inputRuta, setInputRuta] = useState('')
 
 	const [jerarquia, setJerarquia] = useState<any | ''>('')
 	const [areas, setAreas] = useState<Record<string, boolean>>({})
@@ -18,6 +18,12 @@ export default function FirstPage({handleStart}) {
 	// 	const textOk = text !== '' && text != null
 	// 	setRdyNext(jerarquias && textOk)
 	// }, [text, jerarquias])
+
+
+	console.log(inputRuta);
+	console.log(jerarquia);
+	console.log(areas);
+	
 	
 
 	return (
@@ -29,15 +35,16 @@ export default function FirstPage({handleStart}) {
 
 			<div className="bienvenida">
 				<h3 className="jerarquias__title">Ubicacion de carpeta NextCloud</h3>
-				<ImputSettingsSimple 
+				<ImputSimpleFirstPage 
 					keyItem="nxc_ruta_desktop" 
 					keyValue="ruta_desktop" 
-					descripcion="Ruta de NextCloud" 
-					onChange={setText}
+					descripcion="Ruta de NextCloud"
+					inputRuta={inputRuta}
+					setInputRuta={setInputRuta}
 				/>
 			</div>
 			
-			<JerarquiasAreasNxc 
+			<JerarquiasNxcFirstPage 
 				jerarquia={jerarquia}
 				setJerarquia={setJerarquia}
 				areas={areas}

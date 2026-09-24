@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { LuChevronDown } from 'react-icons/lu'
 
 const OPCIONES: { id: any; label: string }[] = [
@@ -37,7 +36,7 @@ const AREAS: Record<any, string[]> = {
 }
 
 
-export default function JerarquiasAreasNxc({ jerarquia, setJerarquia, areas, setAreas }) {
+export default function JerarquiasNxcFirstPage({ jerarquia, setJerarquia, areas, setAreas }) {
 	
 	// const [jerarquia, setJerarquia] = useState<any | ''>('')
 	// const [areas, setAreas] = useState<Record<string, boolean>>({})
