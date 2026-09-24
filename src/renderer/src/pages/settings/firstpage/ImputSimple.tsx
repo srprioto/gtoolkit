@@ -5,10 +5,9 @@ interface Props {
 	keyItem: string // nombre del bloque al que corresopnde
 	keyValue: string // nombre del valor
 	descripcion: string
-	onChange?: Function
 }
 
-export default function ImputSettingsSimple({ keyItem, keyValue, descripcion, onChange }: Props) {
+export default function ImputSimple({ keyItem, keyValue, descripcion }: Props) {
 
 	const [value, setValue] = useState('')
 	const [items, setItems] = useState<any[]>([])
@@ -49,10 +48,7 @@ export default function ImputSettingsSimple({ keyItem, keyValue, descripcion, on
 			<input
 				className="input_add_stg"
 				value={value}
-				onChange={(e) => {
-					setValue(e.target.value)
-					onChange?.(e.target.value)
-				}}
+				onChange={(e) => setValue(e.target.value)}
 				disabled={!editing}
 			/>
 			{editing ? (

@@ -1,12 +1,24 @@
 import ImputSettingsSimple from "@renderer/components/forms/input_settings_simple";
 import JerarquiasAreasNxc from "../nextcloud/JerarquiasAreasNxc";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function FirstPage({handleStart}) {
 
 	const [rdyNext, setRdyNext] = useState<boolean>(false);
 
+	
+	const [text, setText] = useState<string>("");
+
+	const [jerarquia, setJerarquia] = useState<any | ''>('')
+	const [areas, setAreas] = useState<Record<string, boolean>>({})
+
+
+	// useEffect(() => {
+	// 	const textOk = text !== '' && text != null
+	// 	setRdyNext(jerarquias && textOk)
+	// }, [text, jerarquias])
+	
 
 	return (
 		<div className="first_page">
@@ -16,18 +28,21 @@ export default function FirstPage({handleStart}) {
 			</div>
 
 			<div className="bienvenida">
-				<h3 className="jerarquias__title">
-					Ubicacion de carpeta NextCloud
-				</h3>
+				<h3 className="jerarquias__title">Ubicacion de carpeta NextCloud</h3>
 				<ImputSettingsSimple 
 					keyItem="nxc_ruta_desktop" 
 					keyValue="ruta_desktop" 
 					descripcion="Ruta de NextCloud" 
+					onChange={setText}
 				/>
 			</div>
 			
-			<JerarquiasAreasNxc/>
-
+			<JerarquiasAreasNxc 
+				jerarquia={jerarquia}
+				setJerarquia={setJerarquia}
+				areas={areas}
+				setAreas={setAreas}
+			/>
 
 			<div className="box_btn_start">
 				<button 

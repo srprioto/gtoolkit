@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import { LuChevronDown } from 'react-icons/lu'
 
-
+const OPCIONES: { id: any; label: string }[] = [
+	{ id: 'deis', label: 'D.E. Inteligencia sanitaria' },
+	{ id: 'opcion2', label: 'Opción 2' },
+	{ id: 'opcion3', label: 'Opción 3' },
+	{ id: 'opcion4', label: 'Opción 4' }
+]
 
 
 const AREAS: Record<any, string[]> = {
@@ -32,18 +37,10 @@ const AREAS: Record<any, string[]> = {
 }
 
 
-const OPCIONES: { id: any; label: string }[] = [
-	{ id: 'deis', label: 'D.E. Inteligencia sanitaria' },
-	{ id: 'opcion2', label: 'Opción 2' },
-	{ id: 'opcion3', label: 'Opción 3' },
-	{ id: 'opcion4', label: 'Opción 4' }
-]
-
-
-export default function JerarquiasAreasNxc() {
+export default function JerarquiasAreasNxc({ jerarquia, setJerarquia, areas, setAreas }) {
 	
-	const [jerarquia, setJerarquia] = useState<any | ''>('')
-	const [areas, setAreas] = useState<Record<string, boolean>>({})
+	// const [jerarquia, setJerarquia] = useState<any | ''>('')
+	// const [areas, setAreas] = useState<Record<string, boolean>>({})
 
 	const handleJerarquia = (val: any) => {
 		setJerarquia(val)
@@ -54,13 +51,13 @@ export default function JerarquiasAreasNxc() {
 		setAreas(prev => ({ ...prev, [key]: !prev[key] }))
 	}
 
-	console.log(jerarquia);
-	console.log(areas);
+	// console.log(jerarquia);
+	// console.log(areas);
 	
 
 	return (
 		<div className="jerarquias">
-			<h3 className="jerarquias__title">Jerarquía / Área</h3>
+			<h3 className="jerarquias__title">Jerarquía/Área para gestion de archivos</h3>
 
 			{/* Nivel 1: select de jerarquía */}
 			<div className="select">
